@@ -1,18 +1,6 @@
-# system picks random player from 2021,
-# you have 6 guesses to name the 2021 NFL player
-# All players have started in 8 games last year
-
-# Categories are name, team, position and age
-# yellows mean:
-# the players share an initial in their first or last name
-# the players are in the same division
-# they play a position  on the same side of the ball
-# if the players are within 2 years of the same age
-
 import csv
 import random
 from collections import defaultdict
-# For single seasons, in 2021, active, requiring Games Started >= 8, sorted by descending Approximate Value.
 
 players_in_csv = 706
 player_to_guess_dict = {}
