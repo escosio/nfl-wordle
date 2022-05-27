@@ -2,10 +2,13 @@ import csv
 import random
 from collections import defaultdict
 
+csv_path = "players2021.csv"
 players_in_csv = 706
 player_to_guess_dict = {}
 score_history = defaultdict(list)
 max_guesses = 6
+welcome_message ="DA DA DA DAAAAAA. Welcome to NFL Wordle"
+instructions ="It's pretty tough but you get %s guesses to guess the random 2021 player chosen."%max_guesses
 
 divisions = {
     "nfc_east": ["NYG","DAL","PHI","WAS"],
@@ -23,7 +26,7 @@ defense = ["LB","DT","DE","CB","S","NT","DB","DL"]
 
 def load_players():
     converted_dict = {}
-    with open("nfl-wordle/players2021.csv", newline='') as csvfile:
+    with open(csv_path, newline='') as csvfile:
             nfl_players = csv.DictReader(csvfile)
             for row in nfl_players:
                 name = row["Player"]
@@ -167,4 +170,7 @@ def play_game():
         print("Sorry, you're out of guesses. The player was :" )
         print(player_to_guess_dict)
 
-play_game()
+if __name__ == '__main__':
+    print(welcome_message)
+    print(instructions)
+    play_game()
